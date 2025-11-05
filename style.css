@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@300;400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    position: relative;
+    background-color: #0a0a0a;
+    color: #e6edf3;
+    line-height: 1.6;
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+}
+
+/* Fondo*/
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('img/img_fondo.jpg') no-repeat center center/cover;
+    filter: brightness(0.25) blur(1px);
+    opacity: 0.25;
+    z-index: -1;
+}
+
+
+/*HEADER/HERO*/
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+.hero h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    color: #e6edf3;
+    margin-bottom: 1rem;
+}
+
+.hero h2 span {
+    color: #00bfa6;
+}
+
+.hero h3 {
+    color: #8b949e;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+}
+
+.hero p {
+    max-width: 700px;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    background-color: #00bfa6;
+    color: #0a0a0a;
+    padding: 0.8rem 1.5rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #00d4b2;
+    transform: scale(1.05);
+}
+
+/*SECCIONES*/
+section {
+    padding: 4rem 2rem;
+    max-width: 900px;
+    margin: auto;
+}
+
+h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    color: #00bfa6;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #00bfa6;
+    display: inline-block;
+    padding-bottom: 0.3rem;
+}
+
+p,
+li {
+    color: #c9d1d9;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+/*LISTAS Y SKILLS*/
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.skills {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.5rem;
+}
+
+.skills li {
+    background: #161b22;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 500;
+    transition: transform 0.2s;
+}
+
+.skills li:hover {
+    transform: scale(1.05);
+    background-color: #1d222b;
+}
+
+/*CERTIFICACIONES*/
+#habilidades h3 {
+    margin-top: 2.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.4rem;
+    color: #00bfa6;
+    border-bottom: 2px solid #00bfa6;
+    display: inline-block;
+    padding-bottom: 0.3rem;
+}
+
+/* contenedor de las certificaciones */
+#habilidades ul.certificaciones {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    /* centra las tarjetas */
+    gap: 1.5rem;
+    /* espacio entre ellas */
+    flex-wrap: wrap;
+    /* si la pantalla es pequeña, se bajan */
+}
+
+/* cada tarjeta */
+#habilidades ul.certificaciones li {
+    background-color: #161b22;
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    width: 250px;
+    text-align: center;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+#habilidades ul.certificaciones li:hover {
+    background-color: #1d222b;
+    transform: translateY(-4px);
+}
+
+
+#habilidades ul.certificaciones a {
+    color: #e6edf3;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.2s ease;
+    display: inline-block;
+}
+
+#habilidades ul.certificaciones a:hover {
+    color: #00d4b2;
+}
+
+.contactos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.contactos a {
+    color: #e6edf3;
+    font-size: 2rem;
+    transition: 0.3s;
+}
+
+.contactos a:hover {
+    color: #00bfa6;
+    transform: scale(1.15);
+}
+
+
+#contacto .telefono {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: #c9d1d9;
+}
+
+#contacto .telefono i {
+    font-size: 0.9rem;
+    color: #00bfa6;
+    margin-right: 0.4rem;
+    vertical-align: middle;
+}
+
+#contacto .telefono a {
+    color: inherit;
+    text-decoration: none;
+}
+
+#contacto .telefono a:hover {
+    color: #00bfa6;
+    text-decoration: underline;
+}
+
+
+
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: #161b22;
+    color: #8b949e;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+
+footer .creditos {
+    font-size: 0.8rem;
+    color: #5e6a78;
+    margin-top: 0.5rem;
+}
+
+footer .creditos a {
+    color: #00bfa6;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer .creditos a:hover {
+    color: #00d4b2;
+    text-decoration: underline;
+}
+
+
+/*RESPONSIVE*/
+@media (max-width: 768px) {
+    .hero h2 {
+        font-size: 2rem;
+    }
+
+    section {
+        padding: 3rem 1rem;
+    }
+}
