@@ -1,123 +1,625 @@
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portfolio de Aymar Salgado Dieguez - Software Analyst and Developer"
+    />
+    <title>Aymar Salgado | Software Analyst and Developer</title>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aymar - Desarrollador Web</title>
-    <script src="script.js" defer></script>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <!--biblioteca de iconos-->
-    <meta name="format-detection" content="telephone=no">
-</head>
+    <link rel="icon" href="./logo.svg" type="image/svg+xml" />
 
-<body>
-  <div class="fondo"></div>
+    <!-- Preconexión para fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-    <section id="inicio" class="hero">
-        <h2>Hola, soy <span>Aymar Salgado Diéguez</span></h2>
-        <h3>Estudiante de Desarrollo de Aplicaciones Web</h3>
-        <p>Apasionado por la tecnología, el desarrollo web y la creación de proyectos útiles y funcionales.</p>
-        <a href="https://github.com/aymardieguez" class="btn">Ver mis proyectos</a>
-    </section>
-    <section id="sobre-mi">
-        <h2>Sobre mí</h2>
-        <p>Estudio <strong>Desarrollo de Aplicaciones Web</strong> en el IES Fernando
-            Wirtz. <br><br>
-            Tengo un gran interés en el
-            sector de la informática y el desarrollo de software, al mismo tiempo que continúo formándome y ampliando
-            mis estudios (titulación B2 en inglés, por ejemplo).
-            <br><br>
-            Durante mi primer curso tuve la oportunidad de realizar prácticas en Indra, una experiencia que me permitió
-            acercarme al entorno profesional y poner en práctica lo aprendido en mis estudios,
-            lo que me ha ayudado a desarrollar compromiso y
-            trabajo en equipo.
-        </p>
-    </section>
-    <section id="educacion">
-        <h2>Educación</h2>
-        <ul>
-            <li>
-                <strong>Técnico Superior en Desarrollo de Aplicaciones Web</strong> — IES Fernando Wirtz (2024 -
-                Actualidad)
-            </li>
-            <li>
-                <strong>Bachillerato Científico</strong> — IES María Casares (2022 - 2024)
-            </li>
-        </ul>
-    </section>
-    <section id="habilidades">
-        <h2>Habilidades</h2>
-        <ul class="skills">
-            <ul>
-                <li>Java</li>
-                <li>SQL</li>
-                <li>HTML</li>
-            </ul>
-            <ul>
-                <li>JavaScript</li>
-                <li>PHP</li>
-                <li>Trabajo en equipo y responsabilidad</li>
-            </ul>
-        </ul>
+    <!-- CSS Compilado -->
+    <link rel="stylesheet" href="./css/style.css" />
 
-        <h3>Certificaciones</h3><br><br>
-        <p>Obtenidas a través de la plataforma OpenWebinars:</p>
-        <ul class="certificaciones">
-            <li><a href="https://openwebinars.net/cert/uIzD" target="_blank">JavaScript: Fundamentos</a></li>
-            <li><a href="https://openwebinars.net/cert/XlvB" target="_blank">PHP: Fundamentos</a></li>
-        </ul>
-        <p>Obtenidas a través de Trinity College London:</p>
-        <ul class="certificaciones">
-            <li>Trinity College London -<br> ISE I (B1)</li>
-        </ul>
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+      }
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .glass {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+    </style>
+  </head>
 
-    </section>
-    <section id="experiencia">
-        <h2>Experiencia</h2>
-        <p>Durante mi etapa de formación también he aprovechado para trabajar en otros sectores, experiencias que me han
-            ayudado a desarrollar habilidades como el trabajo en equipo, organización, optimización del tiempo...</p>
-        <ul>
-            <li>(Cambre, 09/2025) — <strong>Vigilante de accesos</strong> en Trisquel Servicios Auxiliares</li>
-            <li>(Oleiros, 08/2025) — <strong>Personal de restaurante</strong> en McDonald’s</li>
-            <li>(A Coruña, 06/2025 – 07/2025) — <strong>Repartidor de correspondencia y paquetería</strong> en Correos
-            </li>
-            <li>(A Coruña, 05/2025 – 06/2025) — <strong>Estudiante en prácticas</strong> en Indra Sistemas, S.A</li>
-        </ul>
-    </section>
-    <section id="contacto">
-        <h2>Contacto</h2>
-        <p>¿Quieres ponerte en contacto conmigo? Aquí tienes mis redes 👇</p>
-        <div class="contactos">
-            <a href="mailto:salgadodieguezaymar@gmail.com" title="Email">
-                <i class="fa-solid fa-envelope"></i>
+  <body
+    class="bg-[#0f172a] text-slate-300 antialiased overflow-x-hidden selection:bg-cyan-500 selection:text-white"
+  >
+    <!-- Fondos animados -->
+    <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
+      <div
+        class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-purple-600/20 rounded-full mix-blend-screen filter blur-[100px] animate-[blob_7s_infinite]"
+      ></div>
+      <div
+        class="absolute top-[20%] right-[-10%] w-96 h-96 bg-cyan-600/20 rounded-full mix-blend-screen filter blur-[100px] animate-[blob_7s_infinite] [animation-delay:2s]"
+      ></div>
+      <div
+        class="absolute bottom-[-20%] left-[20%] w-96 h-96 bg-blue-600/20 rounded-full mix-blend-screen filter blur-[100px] animate-[blob_7s_infinite] [animation-delay:4s]"
+      ></div>
+    </div>
+
+    <!-- Navegación -->
+    <nav
+      class="fixed w-full z-50 glass border-b-0 transition-all duration-300"
+      id="navbar"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <div class="flex-shrink-0 flex items-center">
+            <a
+              href="#"
+              class="group flex items-center gap-3 hover:opacity-80 transition-opacity duration-300"
+            >
+              <span
+                class="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500 tracking-tight"
+              >
+                &lt;Aymar/&gt;
+              </span>
             </a>
-            <a href="https://github.com/aymardieguez" target="_blank" title="GitHub">
-                <i class="fa-brands fa-github"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/aymar-salgado-diéguez-770983358" target="_blank" title="LinkedIn">
-                <i class="fa-brands fa-linkedin"></i>
-            </a>
+          </div>
+          <div class="hidden md:block">
+            <div class="ml-10 flex items-baseline space-x-8">
+              <a
+                href="#sobre-mi"
+                class="hover:text-cyan-400 transition-colors duration-300 font-medium"
+                >Sobre mí</a
+              >
+              <a
+                href="#experiencia"
+                class="hover:text-cyan-400 transition-colors duration-300 font-medium"
+                >Experiencia</a
+              >
+              <a
+                href="#habilidades"
+                class="hover:text-cyan-400 transition-colors duration-300 font-medium"
+                >Skills</a
+              >
+              <a
+                href="#proyectos"
+                class="hover:text-cyan-400 transition-colors duration-300 font-medium"
+                >Proyectos</a
+              >
+              <a
+                href="#contacto"
+                class="hover:text-cyan-400 transition-colors duration-300 font-medium"
+                >Contacto</a
+              >
+            </div>
+          </div>
         </div>
-        <p class="telefono">
-            <i class="fa-solid fa-phone"></i>
-            <a href="tel:+34644499591">+34 644 499 591</a>
+      </div>
+    </nav>
+
+    <!-- Inicio -->
+    <section
+      id="inicio"
+      class="min-h-screen flex items-center justify-center pt-20 relative"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+        <h1
+          class="text-5xl md:text-6xl lg:text-8xl font-bold text-white mb-6 tracking-tight"
+        >
+          Aymar Salgado
+        </h1>
+        <h3 class="text-2xl md:text-4xl font-bold text-slate-400 mb-8">
+          Software Analyst &
+          <span
+            class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500"
+            >Developer</span
+          >
+        </h3>
+        <p
+          class="mt-4 max-w-2xl text-lg md:text-xl text-slate-400 mx-auto mb-10 leading-relaxed"
+        >
+          Especializado en construir soluciones robustas y escalables.
+          Transformo problemas complejos en código limpio, eficiente y
+          experiencias de usuario excepcionales.
         </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a
+            href="#proyectos"
+            class="px-8 py-4 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold hover:shadow-[0_0_30px_rgba(6,182,212,0.5)] transition-all duration-300 transform hover:-translate-y-1"
+          >
+            Proyectos
+          </a>
+          <a
+            href="#contacto"
+            class="px-8 py-4 rounded-full glass text-white font-semibold hover:bg-white/10 transition-all duration-300 border border-slate-600 hover:border-cyan-400 transform hover:-translate-y-1"
+          >
+            Contactar
+          </a>
+        </div>
+      </div>
     </section>
 
-    <footer>
-        <p>© 2025 Aymar Salgado Diéguez — Portfolio personal</p>
-        <p class="creditos">
-            Imagen del fondo obtenida en
-            <a href="https://www.freepik.com" target="_blank" rel="noopener noreferrer">
-                Freepik
-            </a>
+    <!-- Sobre Mí -->
+    <section id="sobre-mi" class="py-24 relative">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2
+          class="text-3xl md:text-4xl font-bold text-white mb-12 flex items-center justify-center reveal"
+        >
+          <span class="w-8 h-[2px] bg-cyan-500 mr-4"></span>
+          Sobre Mí
+          <span class="w-8 h-[2px] bg-cyan-500 ml-4"></span>
+        </h2>
+
+        <div class="glass p-8 md:p-12 rounded-3xl relative group reveal">
+          <div
+            class="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-purple-500/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
+          ></div>
+          <div class="relative z-10 space-y-6 text-center md:text-left text-lg">
+            <p class="text-slate-300 leading-relaxed">
+              Mi viaje en el desarrollo de software se consolidó tras graduarme
+              en
+              <strong class="text-white"
+                >Desarrollo de Aplicaciones Web (DAW)</strong
+              >
+              en el
+              <strong class="text-white">IES Fernando Wirtz</strong>.
+            </p>
+            <p class="text-slate-300 leading-relaxed">
+              Actualmente formo parte del sector tecnológico como
+              <strong class="text-cyan-400"
+                >Software Analyst and Developer</strong
+              >
+              en <strong class="text-white">Indra (Minsait)</strong>. Mi
+              experiencia previa en sectores de alta exigencia me ha dotado de
+              una gran capacidad de adaptabilidad, resolución de problemas bajo
+              presión y un sólido enfoque en el trabajo en equipo.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experiencia Laboral -->
+    <section id="experiencia" class="py-24 bg-[#0f172a]/50">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2
+          class="text-3xl md:text-4xl font-bold text-white mb-16 flex items-center justify-center reveal"
+        >
+          Experiencia Laboral
+        </h2>
+
+        <div class="relative space-y-12">
+          <div class="relative reveal">
+            <div class="md:flex items-center justify-between w-full">
+              <div class="hidden md:block w-5/12 text-right pr-8">
+                <h3 class="text-xl font-bold text-white">
+                  Software Analyst & Developer
+                </h3>
+                <p class="text-cyan-400 font-medium">Indra (Minsait)</p>
+                <p class="text-sm text-slate-500 mt-1">Actualidad</p>
+              </div>
+              <div
+                class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-5 h-5 bg-cyan-500 rounded-full border-4 border-[#0f172a] shadow-[0_0_10px_#06b6d4]"
+              ></div>
+              <div
+                class="md:w-5/12 md:pl-8 glass p-6 rounded-xl hover:border-cyan-500/50 transition-colors duration-300"
+              >
+                <div class="md:hidden mb-4">
+                  <h3 class="text-xl font-bold text-white">
+                    Software Analyst & Developer
+                  </h3>
+                  <p class="text-cyan-400 font-medium">Indra (Minsait)</p>
+                  <p class="text-sm text-slate-400">Actualidad</p>
+                </div>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                  Análisis, diseño y desarrollo de soluciones de software a
+                  medida. Participación activa en el ciclo de vida del
+                  desarrollo asegurando la calidad del código, el rendimiento y
+                  la escalabilidad del producto final.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative reveal">
+            <div
+              class="md:flex items-center justify-between w-full flex-row-reverse"
+            >
+              <div class="hidden md:block w-5/12 text-left pl-8">
+                <h3 class="text-xl font-bold text-white">
+                  Logística y Reparto
+                </h3>
+                <p class="text-purple-400 font-medium">Correos</p>
+                <p class="text-sm text-slate-500 mt-1">Experiencia previa</p>
+              </div>
+              <div
+                class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-purple-500 rounded-full border-2 border-[#0f172a]"
+              ></div>
+              <div
+                class="md:w-5/12 md:pr-8 text-left md:text-right glass p-6 rounded-xl hover:border-purple-500/50 transition-colors duration-300"
+              >
+                <div class="md:hidden mb-4">
+                  <h3 class="text-xl font-bold text-white">
+                    Logística y Reparto
+                  </h3>
+                  <p class="text-purple-400 font-medium">Correos</p>
+                  <p class="text-sm text-slate-400">Experiencia previa</p>
+                </div>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                  Gestión autónoma de rutas en un entorno de alto volumen de
+                  trabajo y plazos estrictos. Esta experiencia forjó mi
+                  capacidad de autoorganización, la gestión eficiente del tiempo
+                  y la resolución rápida de incidencias sobre el terreno.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative reveal">
+            <div class="md:flex items-center justify-between w-full">
+              <div class="hidden md:block w-5/12 text-right pr-8">
+                <h3 class="text-xl font-bold text-white">
+                  Atención al Cliente y Trabajo en Equipo
+                </h3>
+                <p class="text-slate-400 font-medium">McDonald's</p>
+                <p class="text-sm text-slate-500 mt-1">Experiencia previa</p>
+              </div>
+              <div
+                class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-slate-500 rounded-full border-2 border-[#0f172a]"
+              ></div>
+              <div
+                class="md:w-5/12 md:pl-8 glass p-6 rounded-xl hover:border-slate-500/50 transition-colors duration-300"
+              >
+                <div class="md:hidden mb-4">
+                  <h3 class="text-xl font-bold text-white">
+                    Atención al Cliente y Equipo
+                  </h3>
+                  <p class="text-slate-400 font-medium">McDonald's</p>
+                  <p class="text-sm text-slate-400">Experiencia previa</p>
+                </div>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                  Experiencia fundamental para el desarrollo de la
+                  adaptabilidad, coordinación precisa en equipo y eficacia
+                  sostenida en entornos de alta presión y ritmo rápido.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="habilidades" class="py-24 relative">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2
+          class="text-3xl md:text-4xl font-bold text-white mb-12 text-center reveal"
+        >
+          Stack Tecnológico
+        </h2>
+        <div class="flex flex-wrap justify-center gap-4 reveal">
+          <div
+            class="glass px-6 py-3 rounded-full flex items-center gap-2 cursor-default hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(65,184,131,0.4)] hover:border-[#41B883] transition-all duration-300 group"
+          >
+            <span class="w-3 h-3 rounded-full bg-[#41B883]"></span
+            ><span class="text-white font-medium">Vue.js</span>
+          </div>
+          <div
+            class="glass px-6 py-3 rounded-full flex items-center gap-2 cursor-default hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(255,45,32,0.4)] hover:border-[#FF2D20] transition-all duration-300 group"
+          >
+            <span class="w-3 h-3 rounded-full bg-[#FF2D20]"></span
+            ><span class="text-white font-medium">Laravel</span>
+          </div>
+          <div
+            class="glass px-6 py-3 rounded-full flex items-center gap-2 cursor-default hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(247,223,30,0.4)] hover:border-[#F7DF1E] transition-all duration-300 group"
+          >
+            <span class="w-3 h-3 rounded-full bg-[#F7DF1E]"></span
+            ><span class="text-white font-medium">JavaScript</span>
+          </div>
+          <div
+            class="glass px-6 py-3 rounded-full flex items-center gap-2 cursor-default hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(231,111,0,0.4)] hover:border-[#E76F00] transition-all duration-300 group"
+          >
+            <span class="w-3 h-3 rounded-full bg-[#E76F00]"></span
+            ><span class="text-white font-medium">Java</span>
+          </div>
+          <div
+            class="glass px-6 py-3 rounded-full flex items-center gap-2 cursor-default hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(51,103,145,0.4)] hover:border-[#336791] transition-all duration-300 group"
+          >
+            <span class="w-3 h-3 rounded-full bg-[#336791]"></span
+            ><span class="text-white font-medium">SQL (MySQL)</span>
+          </div>
+          <div
+            class="glass px-6 py-3 rounded-full flex items-center gap-2 cursor-default hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(56,189,248,0.4)] hover:border-[#38BDF8] transition-all duration-300 group"
+          >
+            <span class="w-3 h-3 rounded-full bg-[#38BDF8]"></span
+            ><span class="text-white font-medium">Tailwind CSS</span>
+          </div>
+          <div
+            class="glass px-6 py-3 rounded-full flex items-center gap-2 cursor-default hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(119,123,179,0.4)] hover:border-[#777BB3] transition-all duration-300 group"
+          >
+            <span class="w-3 h-3 rounded-full bg-[#777BB3]"></span
+            ><span class="text-white font-medium">PHP</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proyecto (TFC) -->
+    <section id="proyectos" class="py-24 bg-[#0f172a]/30">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2
+          class="text-3xl md:text-4xl font-bold text-white mb-12 flex items-center reveal"
+        >
+          <span class="w-8 h-[2px] bg-purple-500 mr-4"></span>
+          Proyecto Destacado
+        </h2>
+
+        <div
+          class="glass rounded-2xl overflow-hidden group hover:shadow-[0_10px_50px_rgba(168,85,247,0.15)] transition-all duration-500 reveal flex flex-col md:flex-row relative"
+        >
+          <div
+            class="relative w-full md:w-5/12 h-80 md:h-auto overflow-hidden flex items-center justify-center p-2 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-700/50 via-[#111a30]/90 to-[#0f172a]"
+          >
+            <div
+              class="absolute top-4 left-4 z-10 bg-yellow-500/20 border border-yellow-500/50 text-yellow-400 text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-2 backdrop-blur-sm"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
+                ></path>
+              </svg>
+              En Desarrollo
+            </div>
+
+            <img
+              src="assets/tfc.webp"
+              fetchpriority="high"
+              loading="lazy"
+              width="800"
+              height="600"
+              alt="Vista previa TFC Viajes"
+              class="w-full h-full object-contain transform transition-all duration-700 opacity-80 group-hover:scale-[1.02] group-hover:opacity-100 rounded-xl"
+            />
+          </div>
+
+          <div class="p-8 md:w-7/12 flex flex-col justify-center">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-cyan-400 text-sm font-semibold"
+                >Proyecto Final de Grado (DAW)</span
+              >
+              <span
+                class="text-xs px-2 py-0.5 bg-purple-500/20 text-purple-300 rounded border border-purple-500/30 font-medium flex items-center gap-1"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="12"
+                  height="12"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"
+                  ></path>
+                  <path d="M5 3v4"></path>
+                  <path d="M19 17v4"></path>
+                  <path d="M3 5h4"></path>
+                  <path d="M17 19h4"></path>
+                </svg>
+                IA Integrada
+              </span>
+            </div>
+
+            <h3 class="text-2xl md:text-3xl font-bold text-white mb-4">
+              V<span
+                class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500"
+                >IA</span
+              >JA - Plataforma Inteligente de Viajes
+            </h3>
+
+            <p class="text-slate-400 leading-relaxed mb-6">
+              Aplicación web tipo SPA (Single Page Application) enfocada en la
+              planificación inteligente de viajes. Los usuarios pueden buscar y
+              diseñar itinerarios usando filtros avanzados. El sistema orquesta
+              una base de datos local sólida con la
+              <strong>API de Inteligencia Artificial de Gemini</strong>,
+              generando rutas personalizadas y estimaciones de costes en tiempo
+              real bajo una arquitectura limpia y robusta.
+            </p>
+
+            <div class="flex flex-wrap gap-2 mb-8">
+              <span
+                class="text-xs font-semibold px-3 py-1.5 bg-white/5 border border-white/10 rounded-md text-cyan-300"
+                >Laravel (Breeze)</span
+              >
+              <span
+                class="text-xs font-semibold px-3 py-1.5 bg-white/5 border border-white/10 rounded-md text-cyan-300"
+                >Vue.js</span
+              >
+              <span
+                class="text-xs font-semibold px-3 py-1.5 bg-white/5 border border-white/10 rounded-md text-cyan-300"
+                >Inertia.js</span
+              >
+              <span
+                class="text-xs font-semibold px-3 py-1.5 bg-white/5 border border-white/10 rounded-md text-cyan-300"
+                >MySQL</span
+              >
+              <span
+                class="text-xs font-semibold px-3 py-1.5 bg-white/5 border border-white/10 rounded-md text-cyan-300"
+                >Tailwind CSS</span
+              >
+              <span
+                class="text-xs font-semibold px-3 py-1.5 bg-purple-500/10 border border-purple-500/30 rounded-md text-purple-300"
+                >API Gemini</span
+              >
+            </div>
+
+            <div class="flex gap-4">
+              <a
+                href="https://github.com/aymardieguez/viaja-tfc"
+                target="_blank"
+                class="px-6 py-2.5 rounded-lg bg-white/10 hover:bg-white/20 text-white font-medium transition-colors flex items-center gap-2"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                  />
+                </svg>
+                Ver Repositorio
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <footer id="contacto" class="relative pt-24 pb-12 border-t border-white/10">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+        <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">
+          ¿Hablamos?
+        </h2>
+        <p class="text-slate-400 mb-10 max-w-2xl mx-auto text-lg">
+          Estoy abierto a proyectos freelance, colaboraciones y nuevos retos
+          tecnológicos. Si buscas un desarrollador con una base técnica sólida y
+          capacidad de adaptación para dar vida a tu producto, hablemos.
         </p>
+
+        <a
+          href="https://mail.google.com/mail/?view=cm&fs=1&to=salgadodieguezaymar@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center px-8 py-4 rounded-full bg-white text-[#0f172a] font-bold hover:scale-105 transition-transform duration-300 mb-12 shadow-[0_0_20px_rgba(255,255,255,0.2)]"
+        >
+          Enviar mensaje
+          <svg
+            class="ml-2"
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </a>
+
+        <div class="flex justify-center gap-8 mb-12">
+          <a
+            href="https://www.linkedin.com/in/aymar-salgado-dieguez"
+            target="_blank"
+            class="w-12 h-12 rounded-full glass flex items-center justify-center text-slate-300 hover:text-[#0A66C2] hover:bg-white/10 transition-all duration-300 hover:-translate-y-1"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+              />
+            </svg>
+          </a>
+          <a
+            href="https://github.com/aymardieguez"
+            target="_blank"
+            class="w-12 h-12 rounded-full glass flex items-center justify-center text-slate-300 hover:text-white hover:bg-white/10 transition-all duration-300 hover:-translate-y-1"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+              />
+            </svg>
+          </a>
+        </div>
+
+        <p class="text-slate-600 text-sm">
+          Desarrollado por Aymar Salgado Dieguez.<br />
+          &copy; <span id="year"></span>. Todos los derechos reservados.
+        </p>
+      </div>
     </footer>
 
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
 
+      const navbar = document.getElementById("navbar");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+          navbar.classList.add("shadow-lg", "bg-[#0f172a]/90");
+          navbar.classList.remove("border-b-0");
+        } else {
+          navbar.classList.remove("shadow-lg", "bg-[#0f172a]/90");
+          navbar.classList.add("border-b-0");
+        }
+      });
 
-</body>
+      const revealElements = document.querySelectorAll(".reveal");
+      const revealOptions = {
+        threshold: 0.15,
+        rootMargin: "0px 0px -50px 0px",
+      };
 
+      const revealOnScroll = new IntersectionObserver(function (
+        entries,
+        observer,
+      ) {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, revealOptions);
+
+      revealElements.forEach((el) => revealOnScroll.observe(el));
+    </script>
+  </body>
 </html>
