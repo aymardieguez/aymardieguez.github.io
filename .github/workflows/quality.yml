@@ -8,6 +8,42 @@ permissions:
   contents: read
 jobs:
   check:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run check
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:browser
+      - run: npm run audit
+      - name: Ensure committed pages match source
+        run: git diff --exit-code -- index.html 404.html proyectos privacidad robots.txt sitemap.xml
+      - uses: actions/upload-artifact@v7
+        with:
+          name: portfolio-production
+          path: dist
+          include-hidden-files: true
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: browser-and-lighthouse-reports
+          path: |
+            test-results
+            playwright-report
+name: Portfolio quality
+on:
+  push:
+    branches: [main, feat/portfolio-redesign]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
