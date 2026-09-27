@@ -1,0 +1,43 @@
+name: Import prepared portfolio
+on:
+  push:
+    branches: [feat/portfolio-redesign]
+    paths: [portfolio-source.zip, .github/workflows/import-portfolio.yml]
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify prepared source
+        run: echo 'fa3b95e283f483364ee271b0ccb6824f12b20d28f8def9d8766fcc9d42302df8  portfolio-source.zip' | sha256sum --check
+      - name: Apply prepared source
+        run: |
+          git rm -r --ignore-unmatch node_modules input.css style.css
+          unzip -o portfolio-source.zip
+          git rm portfolio-source.zip
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run check
+      - name: Commit verified source on feature branch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'feat: redesign portfolio and add verified project case studies'
+          git push origin HEAD:feat/portfolio-redesign
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:browser
+      - run: npm run audit
+        if: always()
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: browser-and-lighthouse-reports
+          path: |
+            test-results
+            playwright-report
