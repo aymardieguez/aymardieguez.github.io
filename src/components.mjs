@@ -5,7 +5,8 @@ export const escapeHtml = (value) =>
     /[&<>"']/g,
     (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char],
   );
-export const arrow = '<span aria-hidden="true">↗</span>';
+export const arrow =
+  '<svg class="icon icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg>';
 export const link = (href, label, className = 'text-link') =>
   `<a class="${className}" href="${escapeHtml(href)}">${label}${arrow}</a>`;
 export const projectPath = (slug) => `/proyectos/${slug}/`;
@@ -18,7 +19,7 @@ function header() {
   return `<a class="skip-link" href="#contenido">Saltar al contenido</a>
   <header class="site-header"><div class="shell header-inner">
     <a class="brand" href="/" aria-label="Aymar Salgado, inicio"><span class="brand-mark" aria-hidden="true">a<span>·</span></span><span>Aymar Salgado<span class="brand-sub">Desarrollador de software</span></span></a>
-    <button class="menu-toggle" type="button" aria-controls="navigation" aria-expanded="false" hidden>Menú <span aria-hidden="true">+</span></button>
+    <button class="menu-toggle" type="button" aria-controls="navigation" aria-expanded="false" hidden>Menú <span class="menu-icon" aria-hidden="true"></span></button>
     <nav id="navigation" aria-label="Principal"><a href="/#proyectos">Trabajo</a><a href="/#servicios">Servicios</a><a href="/#sobre-mi">Sobre mí</a>${link('/#contacto', 'Hablemos', 'nav-cta')}</nav>
   </div></header>`;
 }
