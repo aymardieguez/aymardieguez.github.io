@@ -1,0 +1,13 @@
+node_modules
+dist
+index.html
+404.html
+proyectos
+privacidad
+assets/projects
+assets/*.png
+assets/*.webp
+assets/*.jpg
+docs/*.jpg
+package-lock.json
+sitemap.xml

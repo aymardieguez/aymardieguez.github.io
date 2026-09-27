@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /src/
+Disallow: /scripts/
+Disallow: /tests/
+Disallow: /docs/
+Sitemap: https://aymardieguez.github.io/sitemap.xml
