@@ -1,5 +1,5 @@
 import { spawn } from 'node:child_process';
-import { mkdir } from 'node:fs/promises';
+import { mkdir, readFile } from 'node:fs/promises';
 import { chromium } from '@playwright/test';
 
 await mkdir('test-results', { recursive: true });
@@ -34,6 +34,13 @@ try {
   );
   const code = await new Promise((resolve) => audit.on('exit', resolve));
   if (code !== 0) throw new Error(`Lighthouse exited with code ${code}`);
+  const report = JSON.parse(await readFile('test-results/lighthouse.report.json', 'utf8'));
+  for (const category of Object.values(report.categories)) {
+    console.log(`${category.title}: ${Math.round(category.score * 100)}/100`);
+  }
+  for (const key of ['largest-contentful-paint', 'cumulative-layout-shift', 'total-blocking-time']) {
+    console.log(`${report.audits[key].title}: ${report.audits[key].displayValue}`);
+  }
 } finally {
   server.kill();
 }
