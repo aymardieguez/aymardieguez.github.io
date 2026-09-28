@@ -19,9 +19,9 @@ const pages = [
   [
     'index.html',
     layout({
-      title: 'Desarrollo web en A Coruña | Aymar Salgado',
+      title: 'Desarrollo web y aplicaciones | Aymar Salgado',
       description:
-        'Diseño y desarrollo web en A Coruña para negocios y profesionales. Aymar Salgado, graduado en DAW: webs adaptadas al móvil y aplicaciones a medida.',
+        'Diseño y desarrollo web para negocios y profesionales. Aymar Salgado, graduado en DAW: webs adaptadas al móvil y aplicaciones a medida.',
       body: home(),
     }),
   ],

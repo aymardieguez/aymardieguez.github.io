@@ -87,12 +87,11 @@ export function layout({
             {
               '@type': 'Service',
               '@id': `${profile.url}/#servicio-web`,
-              name: 'Diseño y desarrollo web en A Coruña',
+              name: 'Diseño y desarrollo web',
               description,
               serviceType: ['Diseño y desarrollo web', 'Aplicaciones web', 'Software a medida'],
               url: `${profile.url}/#servicios`,
               provider: { '@id': person['@id'] },
-              areaServed: { '@type': 'City', name: 'A Coruña' },
             },
           ],
         }
