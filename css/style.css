@@ -228,6 +228,39 @@ a:hover {
   max-width: 390px;
   margin-top: 20px;
 }
+.hero-person strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+.icon {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  vertical-align: middle;
+}
+.availability-line {
+  width: 18px;
+  height: 1px;
+  background: currentColor;
+}
+.menu-icon {
+  display: inline-block;
+  width: 16px;
+  height: 8px;
+  border-block: 1px solid currentColor;
+  vertical-align: middle;
+}
+.browser-dots {
+  display: inline-flex;
+  gap: 4px;
+}
+.browser-dots i {
+  width: 4px;
+  height: 4px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+}
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -328,10 +361,14 @@ a:hover {
   color: #64705d;
 }
 .layer-illustration {
-  height: 282px;
+  height: 310px;
+  width: 100%;
+  max-width: 420px;
   position: relative;
   perspective: 900px;
-  margin-top: 10px;
+  margin: 20px auto 8px;
+  overflow: clip;
+  isolation: isolate;
 }
 .plane {
   position: absolute;
@@ -342,8 +379,9 @@ a:hover {
   transform: rotateX(53deg) rotateZ(-27deg);
   border-radius: 5px;
   transition:
-    transform 0.5s ease,
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1),
     background 0.5s;
+  animation: assemble-layer 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 .plane > span {
   font:
@@ -359,10 +397,12 @@ a:hover {
   box-shadow: 9px 15px 0 -7px #a9b69d;
 }
 .plane-logic {
+  animation-delay: 0.09s;
   top: 51px;
   background: #e1e7d6;
 }
 .plane-interface {
+  animation-delay: 0.18s;
   top: -4px;
   background: var(--lime);
   box-shadow: 0 10px 20px #52644815;
@@ -442,6 +482,16 @@ a:hover {
   min-height: 36px;
   line-height: 1.4;
 }
+@keyframes assemble-layer {
+  from {
+    translate: 0 36px;
+    scale: 0.92;
+  }
+  to {
+    translate: 0 0;
+    scale: 1;
+  }
+}
 .blueprint-controls {
   display: flex;
   gap: 3px;
@@ -473,18 +523,18 @@ a:hover {
   text-underline-offset: 3px;
 }
 .blueprint[data-active='app'] .plane-interface {
-  transform: rotateX(53deg) rotateZ(-27deg) translateZ(30px);
+  transform: translateY(-12px) rotateX(53deg) rotateZ(-27deg);
   background: #e7eddb;
 }
 .blueprint[data-active='app'] .plane-logic {
   background: var(--lime);
 }
 .blueprint[data-active='api'] .plane-interface {
-  transform: rotateX(53deg) rotateZ(-27deg) translateZ(50px);
+  transform: translate(-16px, -8px) rotateX(53deg) rotateZ(-27deg);
   background: #e7eddb;
 }
 .blueprint[data-active='api'] .plane-logic {
-  transform: rotateX(53deg) rotateZ(-27deg) translateZ(20px);
+  transform: translateX(16px) rotateX(53deg) rotateZ(-27deg);
 }
 .blueprint[data-active='api'] .plane-data {
   background: var(--lime);
@@ -995,6 +1045,33 @@ a:hover {
   color: #dbe4d1;
   font-size: 14px;
 }
+.draft-meta {
+  margin-top: 20px;
+  font-size: 12px;
+}
+.draft-meta div {
+  display: grid;
+  grid-template-columns: 55px minmax(0, 1fr);
+  gap: 12px;
+  margin-top: 8px;
+}
+.draft-meta dt {
+  color: #bac5b0;
+}
+.draft-meta dd {
+  overflow-wrap: anywhere;
+}
+.contact .copy-status {
+  font-size: 12px;
+  color: #dbe4d1;
+  line-height: 1.6;
+}
+.copy-status:empty {
+  display: none;
+}
+#draft-preview {
+  min-height: 210px;
+}
 .contact :focus-visible {
   outline-color: var(--lime);
 }
@@ -1307,7 +1384,7 @@ a:hover {
     min-height: 415px;
   }
   .layer-illustration {
-    height: 245px;
+    height: 280px;
   }
   .plane {
     height: 145px;
@@ -1459,8 +1536,8 @@ a:hover {
     padding-inline: 25px;
   }
   .layer-illustration {
-    height: 265px;
-    max-width: 400px;
+    height: 280px;
+    max-width: 360px;
     margin-inline: auto;
   }
   .plane {
@@ -1772,7 +1849,7 @@ a:hover {
     min-height: 400px;
   }
   .layer-illustration {
-    height: 245px;
+    height: 280px;
   }
   .plane {
     width: 74%;

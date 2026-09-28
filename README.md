@@ -10,7 +10,7 @@ Portfolio de desarrollo web y software, orientado a presentar trabajo real y fac
 
 - Presentación, servicios, proceso, formación y experiencia profesional.
 - Casos de estudio de José Vale, Nereida Soria y VIAJA, con capturas reales.
-- Asistente de contacto que prepara un correo para revisar y enviar desde el cliente del visitante o Gmail.
+- Asistente de contacto que prepara un correo para revisar y enviar desde Gmail o la aplicación del visitante, con vista previa y copia manual como alternativa.
 - Páginas estáticas con metadata propia, datos estructurados, sitemap, robots y 404.
 
 ## Tecnología y decisiones
@@ -78,6 +78,6 @@ Las rutas asumen el dominio raíz `https://aymardieguez.github.io`, no un subdir
 
 ## Contacto y datos
 
-No hay backend, claves, analítica ni envío silencioso. El formulario prepara enlaces `mailto:` y Gmail; el visitante revisa y envía el correo. No se almacenan entradas en cookies ni localStorage. Los canales de contacto proceden del portfolio original.
+No hay backend, claves, analítica ni envío silencioso. El formulario prepara una vista previa, enlaces `mailto:` y Gmail, y permite copiar el mensaje y la dirección. Si el portapapeles no está disponible, selecciona el texto para copiarlo manualmente. El visitante revisa y envía el correo desde su cuenta. No se almacenan entradas en cookies ni localStorage. Los canales de contacto proceden del portfolio original.
 
 Consulta [la auditoría y las fuentes](docs/audit.md) y [el estado de validación](docs/validation.md) para distinguir lo comprobado de lo pendiente.

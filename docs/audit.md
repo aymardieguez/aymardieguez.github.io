@@ -58,4 +58,4 @@ Dirección visual: composición editorial, marfil, tinta y verde. Capturas ampli
 
 Las webs comerciales responden y se han inspeccionado en navegador. No se dispone de sus repositorios privados; el stack publicado se limita a tecnologías observadas. No se atribuyen mejoras de conversión ni resultados SEO.
 
-La API pública no permitió consultar la configuración de Pages (404 sin autenticación). Esto no prueba que el sitio o el repositorio sean privados. Se conserva la estructura compatible con publicación desde la raíz y se requiere comprobar el despliegue con acceso autenticado.
+La consulta inicial sin autenticación de la configuración de Pages devolvió 404. Posteriormente se verificó la publicación de la PR #1 en la URL pública. Se conserva HTML en la raíz. Los resultados de la revisión posterior están documentados en `docs/validation.md`.

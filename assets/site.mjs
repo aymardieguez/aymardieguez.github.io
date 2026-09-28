@@ -47,7 +47,7 @@ document.querySelectorAll('[data-layer]').forEach((button) => {
       .forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
     document.querySelector('#blueprint-description').textContent = description;
     const projectLink = document.querySelector('#blueprint-project');
-    projectLink.textContent = `${name} ↗`;
+    projectLink.querySelector('span').textContent = name;
     projectLink.href = href;
   });
 });
@@ -75,14 +75,47 @@ if (form) {
     const draft = createDraft(Object.fromEntries(new FormData(form)), email);
     document.querySelector('#draft-email').href = draft.mailto;
     document.querySelector('#draft-gmail').href = draft.gmail;
+    document.querySelector('#draft-subject').textContent = draft.subject;
+    document.querySelector('#draft-preview').value = draft.body;
+    document.querySelector('#draft-status').textContent = '';
     form.hidden = true;
     result.hidden = false;
-    document.querySelector('#draft-email').focus();
+    document.querySelector('#draft-heading').focus();
   });
   document.querySelector('#edit-brief').addEventListener('click', () => {
     result.hidden = true;
     form.hidden = false;
     message.focus();
+  });
+  document.querySelector('#copy-draft').addEventListener('click', async () => {
+    const preview = document.querySelector('#draft-preview');
+    const status = document.querySelector('#draft-status');
+    try {
+      await window.navigator.clipboard.writeText(preview.value);
+      status.textContent = 'Mensaje copiado. Pégalo en tu correo y envíalo cuando quieras.';
+    } catch {
+      preview.focus();
+      preview.select();
+      status.textContent = 'Selecciona Copiar en tu dispositivo o pulsa Ctrl+C (⌘C en Mac).';
+    }
+  });
+  const copyEmail = document.querySelector('#copy-email');
+  copyEmail.hidden = false;
+  copyEmail.addEventListener('click', async () => {
+    const emailLink = document.querySelector('.contact-email');
+    const emailText = emailLink.querySelector('span');
+    const status = document.querySelector('#email-copy-status');
+    try {
+      await window.navigator.clipboard.writeText(emailText.textContent);
+      status.textContent = 'Dirección copiada.';
+    } catch {
+      const range = document.createRange();
+      range.selectNodeContents(emailText);
+      const selection = window.getSelection();
+      selection.removeAllRanges();
+      selection.addRange(range);
+      status.textContent = 'Selecciona Copiar en tu dispositivo o pulsa Ctrl+C (⌘C en Mac).';
+    }
   });
 }
 
