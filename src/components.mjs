@@ -1,4 +1,15 @@
+import { createHash } from 'node:crypto';
+import { readFileSync } from 'node:fs';
 import { profile } from './content.mjs';
+
+// Stable content fingerprints ensure every deployment uses matching CSS and JS.
+const assetVersion = (path) =>
+  createHash('sha256')
+    .update(readFileSync(new URL(path, import.meta.url)))
+    .digest('hex')
+    .slice(0, 12);
+const cssVersion = assetVersion('../css/style.css');
+const scriptVersion = assetVersion('../assets/site.mjs');
 
 export const escapeHtml = (value) =>
   String(value).replace(
@@ -50,11 +61,11 @@ export function layout({
   return `<!doctype html>
 <html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${escapeHtml(title)}</title><meta name="description" content="${escapeHtml(description)}"><meta name="theme-color" content="#f4f3ec">
-<link rel="canonical" href="${url}"><link rel="icon" href="/logo.svg" type="image/svg+xml"><link rel="stylesheet" href="/css/style.css">
+<link rel="canonical" href="${url}"><link rel="icon" href="/logo.svg" type="image/svg+xml"><link rel="stylesheet" href="/css/style.css?v=${cssVersion}">
 <meta property="og:type" content="website"><meta property="og:locale" content="es_ES"><meta property="og:site_name" content="Aymar Salgado"><meta property="og:title" content="${escapeHtml(title)}"><meta property="og:description" content="${escapeHtml(description)}"><meta property="og:url" content="${url}"><meta property="og:image" content="${profile.url}${image}"><meta property="og:image:alt" content="${escapeHtml(title)}">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${escapeHtml(title)}"><meta name="twitter:description" content="${escapeHtml(description)}"><meta name="twitter:image" content="${profile.url}${image}">
 ${noindex ? '<meta name="robots" content="noindex, follow">' : ''}
-<script type="application/ld+json">${JSON.stringify(schema || person).replace(/</g, '\\u003c')}</script><script type="module" src="/assets/site.mjs"></script>
+<script type="application/ld+json">${JSON.stringify(schema || person).replace(/</g, '\\u003c')}</script><script type="module" src="/assets/site.mjs?v=${scriptVersion}"></script>
 </head><body>${header()}<main id="contenido" tabindex="-1">${body}</main>${footer()}</body></html>\n`;
 }
 
