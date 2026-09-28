@@ -119,20 +119,36 @@ if (form) {
   });
 }
 
-// Without JS, all content remains visible. Only entering elements receive motion.
-if (!matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
+// Content is always readable. Prepare only elements below the initial viewport,
+// then animate once without scroll listeners or permanent compositor layers.
+const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+if (!reducedMotion.matches && 'IntersectionObserver' in window) {
+  const targets = [
+    ...document.querySelectorAll(
+      '.section-heading h2, .project-visual img, .project-caption, .service-row h3, .about h2, .process li, .contact h2, .case-section h2',
+    ),
+  ];
+  const pending = targets.filter((element) => element.getBoundingClientRect().top >= window.innerHeight);
+  const cleanup = (element) => element.classList.remove('motion-pending', 'motion-enter');
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('reveal-ready');
-          observer.unobserve(entry.target);
-        }
+        if (!entry.isIntersecting) return;
+        observer.unobserve(entry.target);
+        entry.target.classList.replace('motion-pending', 'motion-enter');
+        entry.target.addEventListener('animationend', () => cleanup(entry.target), { once: true });
+        entry.target.addEventListener('animationcancel', () => cleanup(entry.target), { once: true });
       });
     },
-    { threshold: 0.08 },
+    { threshold: 0, rootMargin: '0px 0px -32px 0px' },
   );
-  document
-    .querySelectorAll('.project, .service-row, .process li')
-    .forEach((element) => observer.observe(element));
+  pending.forEach((element) => {
+    element.classList.add('motion-pending');
+    observer.observe(element);
+  });
+  reducedMotion.addEventListener('change', (event) => {
+    if (!event.matches) return;
+    observer.disconnect();
+    pending.forEach(cleanup);
+  });
 }
