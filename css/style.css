@@ -1963,3 +1963,33 @@ img.motion-enter {
 .case-body aside a {
   min-height: 44px;
 }
+
+.service-faq {
+  margin-top: 64px;
+  max-width: 820px;
+}
+.service-faq h3 {
+  font-size: 25px;
+  margin-bottom: 24px;
+}
+.service-faq details {
+  border-top: 1px solid var(--line);
+  padding: 18px 0;
+}
+.service-faq details:last-child {
+  border-bottom: 1px solid var(--line);
+}
+.service-faq summary {
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+}
+.service-faq p {
+  margin-top: 16px;
+  font-size: 15px;
+  line-height: 1.75;
+}
+.service-faq a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
