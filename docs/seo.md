@@ -1,15 +1,15 @@
-# SEO local del portfolio
+# SEO del portfolio
 
 Revisión: 28 de septiembre de 2026.
 
 ## Objetivo y cambios
 
-La portada se orienta a «desarrollo web en A Coruña» y consultas relacionadas con diseño de páginas web, desarrollador web freelance y aplicaciones a medida. No se garantiza una posición ni se ha medido todavía un aumento de tráfico.
+La portada se orienta a desarrollo web y aplicaciones, con una presentación general por preferencia del propietario. Se ha retirado el enfoque local de A Coruña del titular, contenido comercial, metadatos y datos estructurados. No se garantiza una posición ni se ha medido todavía un aumento de tráfico.
 
-- Título y descripción específicos; H1 visible con servicio y localidad.
+- Título y descripción específicos del servicio; se recupera el titular de marca «Tu próximo paso. Bien construido.».
 - Formación DAW conservada en la presentación, con IA como estudios actuales.
 - Servicios explicados y preguntas reales sobre alcance, presupuesto, renovación y contacto, con enlaces a casos de estudio.
-- Datos estructurados Person, WebSite, WebPage y Service coherentes con el contenido visible. A Coruña se describe como área de servicio, no como una oficina con dirección pública.
+- Datos estructurados Person, WebSite, WebPage y Service coherentes con el contenido visible. No se define una zona geográfica de servicio.
 - Se mantienen canonical, sitemap, robots, HTML estático, imágenes optimizadas y recursos versionados. Las páginas de proyecto conservan títulos y descripciones propios.
 
 El marcado Service ayuda a describir el contenido; no supone una función de resultado enriquecido garantizada. Las preguntas son contenido para visitantes: no se añade marcado FAQ ni se prometen desplegables en Google. No se han añadido reseñas, precios, direcciones, horarios ni cifras no verificados.

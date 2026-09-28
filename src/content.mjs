@@ -44,7 +44,7 @@ export const projects = [
     result:
       'Una web publicada para un negocio real, con información de sus servicios y canales de contacto accesibles desde la navegación.',
     galleryCaption:
-      'Captura real conservada en el portfolio original. Visita la web para ver su estado actual.',
+      'Página de inicio de José Vale. Puedes visitar la web publicada desde el enlace del proyecto.',
   },
   {
     slug: 'nereida',
@@ -82,7 +82,7 @@ export const projects = [
     result:
       'Una web comercial publicada que reúne presentación, carta de servicios y vías de contacto en una misma experiencia.',
     galleryCaption:
-      'Captura real conservada en el portfolio original. Visita la web para ver su estado actual.',
+      'Página de inicio de Nereida Soria. Puedes visitar la web publicada desde el enlace del proyecto.',
   },
   {
     slug: 'viaja',
@@ -130,12 +130,10 @@ export const projects = [
       'Gemini API',
       'Redis',
     ],
-    stackNote:
-      'Stack contrastado con composer.json, package.json, controladores y compose.yaml del repositorio.',
+    stackNote: '',
     result:
       'Una aplicación de proyecto final con autenticación, creación y gestión de itinerarios, administración y exportación. El código está disponible en GitHub.',
-    galleryCaption:
-      'Pantalla real de bienvenida incluida en el portfolio original. No se muestran pantallas recreadas ni resultados simulados.',
+    galleryCaption: 'Pantalla de bienvenida de VIAJA, con acceso al registro y al inicio de sesión.',
   },
 ];
 
