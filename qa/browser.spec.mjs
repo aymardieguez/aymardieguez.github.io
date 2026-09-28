@@ -161,3 +161,28 @@ test('Contact copies the message and recipient without sending a request', async
     await page.getByLabel('Mensaje preparado').inputValue(),
   );
 });
+
+for (const width of [390, 1280]) {
+  test(`Scroll reveals run once and release transforms at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 900 });
+    await page.emulateMedia({ reducedMotion: 'no-preference' });
+    await page.goto('/');
+    const heading = page.locator('#proyectos h2');
+    await expect(heading).toHaveClass(/motion-pending/);
+    await heading.evaluate((element) => {
+      element.addEventListener('animationstart', () => {
+        element.dataset.animationRuns = String(Number(element.dataset.animationRuns || 0) + 1);
+      });
+    });
+    await heading.scrollIntoViewIfNeeded();
+    await expect(heading).toHaveAttribute('data-animation-runs', '1');
+    await expect(heading).not.toHaveClass(/motion-pending|motion-enter/);
+    await expect(heading).toHaveCSS('transform', 'none');
+    await page.locator('#contacto h2').scrollIntoViewIfNeeded();
+    await heading.scrollIntoViewIfNeeded();
+    await expect(heading).toHaveAttribute('data-animation-runs', '1');
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await expect(page.locator('.motion-pending, .motion-enter')).toHaveCount(0);
+    await expect(page.locator('.project').first()).toHaveCSS('animation-name', 'none');
+  });
+}
