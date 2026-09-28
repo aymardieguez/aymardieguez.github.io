@@ -58,6 +58,45 @@ export function layout({
     jobTitle: 'Desarrollador de software',
     sameAs: [profile.github, profile.linkedin],
   };
+  const structuredData =
+    schema ||
+    (path === '/'
+      ? {
+          '@context': 'https://schema.org',
+          '@graph': [
+            person,
+            {
+              '@type': 'WebSite',
+              '@id': `${profile.url}/#website`,
+              url: `${profile.url}/`,
+              name: 'Aymar Salgado',
+              inLanguage: 'es',
+              publisher: { '@id': person['@id'] },
+            },
+            {
+              '@type': 'WebPage',
+              '@id': `${url}#webpage`,
+              url,
+              name: title,
+              description,
+              inLanguage: 'es',
+              isPartOf: { '@id': `${profile.url}/#website` },
+              about: { '@id': person['@id'] },
+              mainEntity: { '@id': `${profile.url}/#servicio-web` },
+            },
+            {
+              '@type': 'Service',
+              '@id': `${profile.url}/#servicio-web`,
+              name: 'Diseño y desarrollo web en A Coruña',
+              description,
+              serviceType: ['Diseño y desarrollo web', 'Aplicaciones web', 'Software a medida'],
+              url: `${profile.url}/#servicios`,
+              provider: { '@id': person['@id'] },
+              areaServed: { '@type': 'City', name: 'A Coruña' },
+            },
+          ],
+        }
+      : person);
   return `<!doctype html>
 <html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${escapeHtml(title)}</title><meta name="description" content="${escapeHtml(description)}"><meta name="theme-color" content="#f4f3ec">
@@ -65,7 +104,7 @@ export function layout({
 <meta property="og:type" content="website"><meta property="og:locale" content="es_ES"><meta property="og:site_name" content="Aymar Salgado"><meta property="og:title" content="${escapeHtml(title)}"><meta property="og:description" content="${escapeHtml(description)}"><meta property="og:url" content="${url}"><meta property="og:image" content="${profile.url}${image}"><meta property="og:image:alt" content="${escapeHtml(title)}">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${escapeHtml(title)}"><meta name="twitter:description" content="${escapeHtml(description)}"><meta name="twitter:image" content="${profile.url}${image}">
 ${noindex ? '<meta name="robots" content="noindex, follow">' : ''}
-<script type="application/ld+json">${JSON.stringify(schema || person).replace(/</g, '\\u003c')}</script><script type="module" src="/assets/site.mjs?v=${scriptVersion}"></script>
+<script type="application/ld+json">${JSON.stringify(structuredData).replace(/</g, '\\u003c')}</script><script type="module" src="/assets/site.mjs?v=${scriptVersion}"></script>
 </head><body>${header()}<main id="contenido" tabindex="-1">${body}</main>${footer()}</body></html>\n`;
 }
 
